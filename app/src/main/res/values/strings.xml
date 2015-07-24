@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Popular Movies</string>
     <string name="title_activity_movie_list">MovieListActivity</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_movie_detail">MovieDetailActivity</string>
     <string name="action_settings">Settings</string>
 </resources>
