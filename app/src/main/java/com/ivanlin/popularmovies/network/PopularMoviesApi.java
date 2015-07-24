@@ -61,8 +61,4 @@ public class PopularMoviesApi {
         }
         return null;
     }
-
-    public static void main(String[] args) {
-        new PopularMoviesApi().getMovie(198184);
-    }
 }
