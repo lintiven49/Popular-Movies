@@ -9,8 +9,6 @@ import android.widget.GridView;
 
 import com.ivanlin.popularmovies.R;
 
-import butterknife.ButterKnife;
-
 public class MovieListActivityFragment extends BaseFragment {
 
     public MovieListActivityFragment() {
@@ -22,13 +20,11 @@ public class MovieListActivityFragment extends BaseFragment {
         View resultView = inflater.inflate(R.layout.fragment_movie_list, container, false);
         GridView gv = (GridView) resultView.findViewById(R.id.gv_movie_list);
         gv.setAdapter(new ArrayAdapter<String>(null, 0));
-        ButterKnife.bind(this, resultView);
         return resultView;
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        ButterKnife.unbind(this);
     }
 }

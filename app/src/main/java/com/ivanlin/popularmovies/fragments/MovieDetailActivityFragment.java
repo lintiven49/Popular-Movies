@@ -8,10 +8,7 @@ import android.view.ViewGroup;
 
 import com.ivanlin.popularmovies.R;
 
-/**
- * A placeholder fragment containing a simple view.
- */
-public class MovieDetailActivityFragment extends Fragment {
+public class MovieDetailActivityFragment extends BaseFragment {
 
     public MovieDetailActivityFragment() {
     }
