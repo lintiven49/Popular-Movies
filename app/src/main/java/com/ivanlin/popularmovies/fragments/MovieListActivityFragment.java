@@ -1,7 +1,6 @@
 package com.ivanlin.popularmovies.fragments;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,14 +9,9 @@ import android.widget.GridView;
 
 import com.ivanlin.popularmovies.R;
 
-import butterknife.Bind;
 import butterknife.ButterKnife;
 
-/**
- * A placeholder fragment containing a simple view.
- */
-public class MovieListActivityFragment extends Fragment {
-    @Bind(R.id.gv_movie_list) GridView gvMovieList;
+public class MovieListActivityFragment extends BaseFragment {
 
     public MovieListActivityFragment() {
     }

@@ -1,13 +1,12 @@
 package com.ivanlin.popularmovies.activities;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.ivanlin.popularmovies.R;
 
-public class MovieListActivity extends AppCompatActivity {
+public class MovieListActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
