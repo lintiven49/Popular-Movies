@@ -16,6 +16,8 @@ import static com.ivanlin.popularmovies.MovieApplication.getClient;
 import static com.ivanlin.popularmovies.MovieApplication.getGson;
 
 public class PopularMoviesApi {
+    public static final String BASE_IMAGE_URL = "http://image.tmdb.org/t/p/";
+    private static final PopularMoviesApi INSTANCE = new PopularMoviesApi();
     private static final String ID_PLACEHOLDER = "{id}";
     private static final String TAG = "PopularMoviesApi";
     private static final String VERSION = "3";
@@ -23,7 +25,14 @@ public class PopularMoviesApi {
     private static final String API_KEY = "api_key=883ecd231e9553afc7a7896259cbfe43";
     private static final String DISCOVER_URL = BASE_URL + "discover/movie?" + API_KEY;
     private static final String GET_MOVIE_URL = BASE_URL + "movie/" + ID_PLACEHOLDER + "?" + API_KEY;
-    public static final String BASE_IMAGE_URL = "http://image.tmdb.org/t/p/";
+
+    private PopularMoviesApi() {
+
+    }
+
+    public static PopularMoviesApi getInstance() {
+        return INSTANCE;
+    }
 
     public List<Movie> discoverMovies() {
         OkHttpClient client = getClient();
@@ -38,7 +47,6 @@ public class PopularMoviesApi {
             }
         } catch (IOException e) {
             Log.e(TAG, "discoverMovies error", e);
-
             return Collections.emptyList();
         }
         return Collections.emptyList();

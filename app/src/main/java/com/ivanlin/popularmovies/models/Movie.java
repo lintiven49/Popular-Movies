@@ -8,6 +8,15 @@ import com.ivanlin.popularmovies.network.PopularMoviesApi;
 
 @SuppressWarnings("unused")
 public class Movie implements Parcelable {
+    public static final Parcelable.Creator<Movie> CREATOR = new Parcelable.Creator<Movie>() {
+        public Movie createFromParcel(Parcel source) {
+            return new Movie(source);
+        }
+
+        public Movie[] newArray(int size) {
+            return new Movie[size];
+        }
+    };
     private long id;
     @SerializedName("original_title")
     private String title;
@@ -18,6 +27,18 @@ public class Movie implements Parcelable {
     private double voteAverage;
     @SerializedName("release_date")
     private String releaseDate;
+
+    public Movie() {
+    }
+
+    protected Movie(Parcel in) {
+        this.id = in.readLong();
+        this.title = in.readString();
+        this.posterPath = in.readString();
+        this.overview = in.readString();
+        this.voteAverage = in.readDouble();
+        this.releaseDate = in.readString();
+    }
 
     public long getId() {
         return id;
@@ -67,7 +88,6 @@ public class Movie implements Parcelable {
         this.releaseDate = releaseDate;
     }
 
-
     @Override
     public int describeContents() {
         return 0;
@@ -83,30 +103,8 @@ public class Movie implements Parcelable {
         dest.writeString(this.releaseDate);
     }
 
-    public Movie() {
-    }
-
-    protected Movie(Parcel in) {
-        this.id = in.readLong();
-        this.title = in.readString();
-        this.posterPath = in.readString();
-        this.overview = in.readString();
-        this.voteAverage = in.readDouble();
-        this.releaseDate = in.readString();
-    }
-
-    public static final Parcelable.Creator<Movie> CREATOR = new Parcelable.Creator<Movie>() {
-        public Movie createFromParcel(Parcel source) {
-            return new Movie(source);
-        }
-
-        public Movie[] newArray(int size) {
-            return new Movie[size];
-        }
-    };
-
     public String getDefaultPoster() {
-        return getPoster("w185");
+        return getPoster("w185/");
     }
 
     private String getPoster(String size) {
