@@ -4,12 +4,24 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.ivanlin.popularmovies.R;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 public class MovieDetailFragment extends BaseFragment {
     private static final String ARG_ID = "id";
+    @Bind(R.id.tv_title) TextView tvTitle;
+    @Bind(R.id.imgv_poster) ImageView imgvPoster;
+    @Bind(R.id.tv_year) TextView tvYear;
+    @Bind(R.id.tv_duration) TextView tvDuration;
+    @Bind(R.id.tv_rate) TextView tvRate;
+    @Bind(R.id.btn_favourite) Button btnFavourite;
+    @Bind(R.id.tv_desc) TextView tvDesc;
 
     public MovieDetailFragment() {
     }
@@ -25,13 +37,19 @@ public class MovieDetailFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_movie_detail, container, false);
+        View view = inflater.inflate(R.layout.fragment_movie_detail, container, false);
+        ButterKnife.bind(this, view);
+        return view;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    }
 
-        Toast.makeText(getActivity(), "!!!!!" + getArguments().getLong(ARG_ID), Toast.LENGTH_SHORT).show();
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        ButterKnife.unbind(this);
     }
 }

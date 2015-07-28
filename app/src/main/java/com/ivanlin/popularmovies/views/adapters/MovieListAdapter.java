@@ -48,7 +48,7 @@ public class MovieListAdapter extends ArrayAdapter<Movie> {
     }
 
     static class ViewHolder {
-        @Bind(R.id.imgv_movie_poster) ImageView imgvMoviePoster;
+        @Bind(R.id.imgv_poster) ImageView imgvMoviePoster;
 
         ViewHolder(View view) {
             ButterKnife.bind(this, view);
