@@ -8,7 +8,7 @@ import com.ivanlin.popularmovies.network.PopularMoviesApi;
 
 @SuppressWarnings("unused")
 public class Movie implements Parcelable {
-    public static final Parcelable.Creator<Movie> CREATOR = new Parcelable.Creator<Movie>() {
+    public static final Creator<Movie> CREATOR = new Creator<Movie>() {
         public Movie createFromParcel(Parcel source) {
             return new Movie(source);
         }
@@ -27,6 +27,8 @@ public class Movie implements Parcelable {
     private double voteAverage;
     @SerializedName("release_date")
     private String releaseDate;
+    @SerializedName("runtime")
+    private int duration;
 
     public Movie() {
     }
@@ -38,6 +40,22 @@ public class Movie implements Parcelable {
         this.overview = in.readString();
         this.voteAverage = in.readDouble();
         this.releaseDate = in.readString();
+        this.duration = in.readInt();
+    }
+
+    public String getDefaultPoster() {
+        return getPoster("w185/");
+    }
+
+    private String getPoster(String size) {
+        return PopularMoviesApi.BASE_IMAGE_URL + size + posterPath;
+    }
+
+    public String getReleaseYear() {
+        if (releaseDate == null) {
+            return "UNKNOWN";
+        }
+        return releaseDate.split("-")[0];
     }
 
     public long getId() {
@@ -88,6 +106,14 @@ public class Movie implements Parcelable {
         this.releaseDate = releaseDate;
     }
 
+    public int getDuration() {
+        return duration;
+    }
+
+    public void setDuration(int duration) {
+        this.duration = duration;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -101,13 +127,6 @@ public class Movie implements Parcelable {
         dest.writeString(this.overview);
         dest.writeDouble(this.voteAverage);
         dest.writeString(this.releaseDate);
-    }
-
-    public String getDefaultPoster() {
-        return getPoster("w185/");
-    }
-
-    private String getPoster(String size) {
-        return PopularMoviesApi.BASE_IMAGE_URL + size + posterPath;
+        dest.writeInt(this.duration);
     }
 }

@@ -14,118 +14,123 @@
         tools:text="Chappie"
         />
 
-    <ImageView
-        android:id="@+id/imgv_poster"
-        android:layout_width="134dp"
-        android:layout_height="200dp"
-        android:layout_below="@id/tv_title"
-        android:layout_marginLeft="30dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="3dp"
-        android:contentDescription="@string/poster"
-        android:scaleType="fitStart"
-        tools:src="@drawable/poster"
-        />
-
-    <TextView
-        android:id="@+id/tv_year"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@id/imgv_poster"
-        android:layout_marginLeft="38dp"
-        android:layout_marginStart="38dp"
-        android:layout_marginTop="6dp"
-        android:layout_toEndOf="@id/imgv_poster"
-        android:layout_toRightOf="@id/imgv_poster"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="?android:attr/textColorSecondary"
-        tools:text="2015"
-        />
-
-    <TextView
-        android:id="@+id/tv_duration"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@id/tv_year"
-        android:layout_alignStart="@id/tv_year"
-        android:layout_below="@id/tv_year"
-        android:layout_marginTop="6dp"
-        android:layout_toEndOf="@id/imgv_poster"
-        android:layout_toRightOf="@id/imgv_poster"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textStyle="italic|bold"
-        tools:text="120min"
-        />
-
-    <TextView
-        android:id="@+id/tv_rate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@id/tv_year"
-        android:layout_alignStart="@id/tv_year"
-        android:layout_below="@id/tv_duration"
-        android:layout_marginTop="6dp"
-        android:layout_toEndOf="@id/imgv_poster"
-        android:layout_toRightOf="@id/imgv_poster"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="@android:color/black"
-        tools:text="8.1/10"
-        />
-
-    <Button
-        android:id="@+id/btn_favourite"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@id/tv_year"
-        android:layout_alignStart="@id/tv_year"
-        android:layout_below="@id/tv_rate"
-        android:layout_marginTop="6dp"
-        android:paddingLeft="12dp"
-        android:paddingRight="12dp"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        tools:text="MARK AS\nFAVOURITE"
-        />
-
-    <TextView
-        android:id="@+id/tv_desc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/imgv_poster"
-        android:layout_marginLeft="21dp"
-        android:layout_marginRight="21dp"
-        android:layout_marginTop="22dp"
-        tools:text="sfasd fa sdfasdfa dfadfasdfa asdfadf asdfasdfa asdfasdfas fasdfadsfa sdfasdfasdfasdfa dfadfasd fasdfasdfa sdfasdfasdf adsf asdfa sdf adsfa"
-        />
-
-    <View
-        android:id="@+id/divider"
-        android:layout_width="wrap_content"
-        android:layout_height="2dp"
-        android:layout_alignEnd="@id/tv_desc"
-        android:layout_alignLeft="@id/tv_desc"
-        android:layout_alignRight="@id/tv_desc"
-        android:layout_alignStart="@id/tv_desc"
-        android:layout_below="@id/tv_desc"
-        android:layout_marginTop="5dp"
-        android:background="@android:color/darker_gray"
-        />
-
-    <TextView
-        android:id="@+id/tv_trailers"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@id/divider"
-        android:layout_alignStart="@id/divider"
-        android:layout_below="@id/divider"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="?android:attr/textColorSecondary"
-        tools:text="Trailers:"
-        />
-
-    <ListView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_below="@id/tv_trailers"
-        tools:listitem="@layout/item_trailer"
-        />
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_title"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <ImageView
+                android:id="@+id/imgv_poster"
+                android:layout_width="134dp"
+                android:layout_height="200dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="3dp"
+                android:contentDescription="@string/poster"
+                android:scaleType="fitStart"
+                tools:src="@drawable/poster"
+                />
+
+            <TextView
+                android:id="@+id/tv_year"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/imgv_poster"
+                android:layout_marginLeft="38dp"
+                android:layout_marginStart="38dp"
+                android:layout_marginTop="6dp"
+                android:layout_toEndOf="@id/imgv_poster"
+                android:layout_toRightOf="@id/imgv_poster"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="?android:attr/textColorSecondary"
+                tools:text="2015"
+                />
+
+            <TextView
+                android:id="@+id/tv_duration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/tv_year"
+                android:layout_alignStart="@id/tv_year"
+                android:layout_below="@id/tv_year"
+                android:layout_marginTop="6dp"
+                android:layout_toEndOf="@id/imgv_poster"
+                android:layout_toRightOf="@id/imgv_poster"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textStyle="italic|bold"
+                tools:text="120min"
+                />
+
+            <TextView
+                android:id="@+id/tv_rate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/tv_year"
+                android:layout_alignStart="@id/tv_year"
+                android:layout_below="@id/tv_duration"
+                android:layout_marginTop="6dp"
+                android:layout_toEndOf="@id/imgv_poster"
+                android:layout_toRightOf="@id/imgv_poster"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@android:color/black"
+                tools:text="8.1/10"
+                />
+
+            <Button
+                android:id="@+id/btn_favourite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/tv_year"
+                android:layout_alignStart="@id/tv_year"
+                android:layout_below="@id/tv_rate"
+                android:layout_marginTop="6dp"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                tools:text="MARK AS\nFAVOURITE"
+                />
+
+            <TextView
+                android:id="@+id/tv_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/imgv_poster"
+                android:layout_marginLeft="21dp"
+                android:layout_marginRight="21dp"
+                android:layout_marginTop="22dp"
+                tools:text="sfasd fa sdfasdfa dfadfasdfa asdfadf asdfasdfa asdfasdfas fasdfadsfa sdfasdfasdfasdfa dfadfasd fasdfasdfa sdfasdfasdf adsf asdfa sdf adsfa"
+                />
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="wrap_content"
+                android:layout_height="2dp"
+                android:layout_alignEnd="@id/tv_desc"
+                android:layout_alignLeft="@id/tv_desc"
+                android:layout_alignRight="@id/tv_desc"
+                android:layout_alignStart="@id/tv_desc"
+                android:layout_below="@id/tv_desc"
+                android:layout_marginTop="5dp"
+                android:background="@android:color/darker_gray"
+                />
+
+            <TextView
+                android:id="@+id/tv_trailers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/divider"
+                android:layout_alignStart="@id/divider"
+                android:layout_below="@id/divider"
+                android:text="@string/label_trailers"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="?android:attr/textColorSecondary"
+                />
+        </RelativeLayout>
+    </ScrollView>
 </RelativeLayout>

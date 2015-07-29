@@ -27,6 +27,11 @@ public class MovieListFragment extends BaseFragment {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View resultView = inflater.inflate(R.layout.fragment_movie_list, container, false);
@@ -34,13 +39,13 @@ public class MovieListFragment extends BaseFragment {
         data = new ArrayList<Movie>(0);
         mMovieListAdapter = new MovieListAdapter(getActivity(), data);
         gvMovieList.setAdapter(mMovieListAdapter);
+        new LoadMoviesTasks().execute();
         return resultView;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        new LoadMoviesTasks().execute();
     }
 
     @Override
